@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
     <script src="registro.js"></script>
     <style>
         .error{
@@ -13,25 +14,19 @@
     </style>
 </head>
 <body>
-    <h1>Registro</h1>
-    <form action="#" method="post">
-        <label>Usuario</label>
-        <input type="text" name="usuario"><br>
-        <label>Nombre</label>
-        <input type="text" name="nombre" id="nombre" onfocusout="compruebaNombre()"><span id="errorNombre" class="error"></span><br>
-        <label>Apellidos</label>
-        <input type="text" name="apellidos" id="apellidos" onfocusout="compruebaApellidos()"><span id="errorApellidos" class="error"></span><br>
-        <label>Correo</label>
-        <input type="email" name="correo" id="correo" onfocusout="compruebaCorreo()"><br>
-        <label>DNI</label>
-        <input type="text" name="dni" id="dni" onfocusout="compruebaDni()"><span id="errorDni" class="error"></span><br>
-        <label>Tarjeta</label>
-        <input type="text" name="tarjeta" id="tarjeta" onfocusout="compruebaTarjeta()"><span id="errorTarjeta" class="error"></span><br>
-        <label>Contraseña</label>
-        <input type="password" name="clave" id="clave" onfocusout="compruebaClave()"><span id="errorClave" class="error"></span><br>
-        <label>Confirmar contraseña</label>
-        <input type="password" name="clavec" id="claveC" onfocusout="compruebaClaveC()"><span id="errorClaveC" class="error"></span><br>
-        <input type="submit" value="Enviar" id="boton" disabled>
+    <h1 align="center">Registro</h1>
+    <div align="center" class="bg-light border border-secondary rounded" style="padding: 30px; margin-left: 750px; margin-right: 750px;">
+    <form action="alta.php" method="post">
+        <input type="text" name="usuario" placeholder="Usuario"><br><br>
+        <input type="text" name="nombre" id="nombre" onfocusout="compruebaNombre()" placeholder="Nombre" size="20px"><span id="errorNombre" class="error"></span><br><br>
+        <input type="text" name="apellidos" id="apellidos" onfocusout="compruebaApellidos()" placeholder="Apellidos" size="20px"><span id="errorApellidos" class="error"></span><br><br>
+        <input type="email" name="correo" id="correo" onfocusout="compruebaCorreo()" placeholder="E-Mail"><br><br>
+        <input type="text" name="dni" id="dni" onfocusout="compruebaDni()" placeholder="DNI"><span id="errorDni" class="error"></span><br><br>
+        <input type="number" name="tarjeta" id="tarjeta" onfocusout="compruebaTarjeta()" placeholder="Nº Tarjeta"><span id="errorTarjeta" class="error"></span><br><br>
+        <input type="password" name="clave" id="clave" onfocusout="compruebaClave()" placeholder="Contraseña"><span id="errorClave" class="error"></span><br><br>
+        <input type="password" name="clavec" id="claveC" onfocusout="compruebaClaveC()" placeholder="Confirmar Contraseña"><span id="errorClaveC" class="error"></span><br><br>
+        <input type="submit" value="Enviar" id="boton" disabled class="btn-primary text-white"><br>
     </form>
+    </div>
 </body>
 </html>
