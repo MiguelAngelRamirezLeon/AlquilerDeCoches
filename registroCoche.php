@@ -14,6 +14,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>registroCoche</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
     <script src="registroCoche.js"></script>
+    <style>
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
 </head>
 <body>
     <h1 align="center">Nuevo Coche</h1>
@@ -21,10 +27,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div align="center" class="bg-light border border-secondary rounded m-5 p-5">
     <div>
     <form action="altaCoches.php" method="post">
-        <input type="text" name="marca" id="marca" onfocusout="compruebaMarca()" placeholder="Marca"><span id="errorMarca" class="error" style="color: red;"></span><br><br>
-        <input type="text" name="modelo" id="modelo" onfocusout="compruebaModelo()" placeholder="Modelo"><span id="errorModelo" class="error" style="color: red;"></span><br><br>
-        <input type="text" name="matricula" id="matricula" onfocusout="compruebaMatricula()" placeholder="Matricula"><span id="errorMatricula" class="error" style="color: red;"></span><br><br>
-        <input type="text" name="bastidor" id="bastidor" onfocusout="compruebaBastidor()" placeholder="Bastidor"><span id="errorBastidor" class="error" style="color: red;"></span><br><br>
+        <input type="text" name="marca" id="marca" onfocusout="compruebaMarca()" placeholder="Marca"><br><span id="errorMarca" class="error"></span><br>
+        <input type="text" name="modelo" id="modelo" onfocusout="compruebaModelo()" placeholder="Modelo"><br><span id="errorModelo" class="error"></span><br>
+        <input type="text" name="matricula" id="matricula" onfocusout="compruebaMatricula()" placeholder="Matricula"><br><span id="errorMatricula" class="error"></span><br>
+        <input type="text" name="bastidor" id="bastidor" onfocusout="compruebaBastidor()" placeholder="Bastidor"><br><span id="errorBastidor" class="error"></span><br>
         <label>Tipo</label>
         <select name="tipo">
             <option>Turismo</option>
