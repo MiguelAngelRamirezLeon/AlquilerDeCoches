@@ -17,7 +17,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <h1 align="center">Nuevo Coche</h1>
-    <div align="center" class="bg-light border border-secondary rounded" style="padding: 30px; margin-left: 750px; margin-right: 750px;">
+    <div class="container-fluid">
+    <div align="center" class="bg-light border border-secondary rounded m-5 p-5">
     <div>
     <form action="altaCoches.php" method="post">
         <input type="text" name="marca" id="marca" onfocusout="compruebaMarca()" placeholder="Marca"><span id="errorMarca" class="error" style="color: red;"></span><br><br>
@@ -34,6 +35,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </select><br><br>
         <input type="submit" value="Enviar" id="boton" disabled>
     </form>
+    </div>
     </div>
 </body>
 </html>
