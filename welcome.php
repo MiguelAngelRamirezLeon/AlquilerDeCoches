@@ -44,7 +44,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="listadoCoches.php">Alquilar Coche</a>
+                    <a class="nav-link" aria-current="page" href="alquilar.php">Alquilar Coche</a>
                     </li>
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="googleMaps.html">Donde Encontrarnos</a>

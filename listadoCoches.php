@@ -21,6 +21,12 @@
     </head>
     <body>
     <?php
+    $cadena=$_SESSION["array"];
+    $pos=strpos($cadena,",");
+    
+    echo $cadena;
+
+    $boo=false;
   $conexion = mysqli_connect("localhost", "root", "", "ejercicio_diw") or
     die("Problemas con la conexión");
 
@@ -40,15 +46,50 @@
         echo "</thead>";
         echo "<tbody>";
         while ($reg = mysqli_fetch_array($registros)) {
-          echo "<tr>";
+          
+        if ($pos===false) {
+          if ($cadena==$reg['Matricula']) {
+            # code...
+          }else {
+            echo "<tr>";
             echo "<td><img src='img/" . $reg['Foto'] . ".jpg' width='300px'></td>";
             echo "<td>" . $reg['Marca'] . "</td>";
             echo "<td>" . $reg['Modelo'] . "</td>";
             echo "<td>" . $reg['Matricula'] . "</td>";
             echo "<td>" . $reg['Bastidor'] . "</td>";
             echo "<td>" . $reg['Tipo'] . "</td>";
-            echo "<td><a href='alquilar.php?matricula=". $reg['Matricula']. "&marca=". $reg['Marca']. "&modelo=". $reg['Modelo']. "'>Alquilar</a></td>";
-          echo "</tr>";
+            echo "<td><a href='alquilado.php?matricula=". $reg['Matricula']. "&marca=". $reg['Marca']. "&modelo=". $reg['Modelo']. "'>Alquilar</a></td>";
+            echo "</tr>";
+          }
+        }else {
+          $array=explode(",",$cadena);
+          if ($cadena==null) {
+            $boo=false;
+          }else {
+            for ($i=0; $i < count($array); $i++) { 
+              if ($array[$i]==$reg['Matricula']) {
+                $boo=true;
+                break;
+                
+            }
+          }
+        }
+          if ($boo==true) {
+            # code...
+          }else {
+            echo "<tr>";
+            echo "<td><img src='img/" . $reg['Foto'] . ".jpg' width='300px'></td>";
+            echo "<td>" . $reg['Marca'] . "</td>";
+            echo "<td>" . $reg['Modelo'] . "</td>";
+            echo "<td>" . $reg['Matricula'] . "</td>";
+            echo "<td>" . $reg['Bastidor'] . "</td>";
+            echo "<td>" . $reg['Tipo'] . "</td>";
+            echo "<td><a href='alquilado.php?matricula=". $reg['Matricula']. "&marca=". $reg['Marca']. "&modelo=". $reg['Modelo']. "'>Alquilar</a></td>";
+            echo "</tr>";
+          }
+        }
+        
+         
           }
         echo "</tbody>";
     echo "</table>";
