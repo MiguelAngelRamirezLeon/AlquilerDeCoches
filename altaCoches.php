@@ -14,12 +14,20 @@
     <body>
     <?php
 
-    
+            $nombre = $_FILES['foto']['name'];
+            $foto = $_FILES['foto']['tmp_name'];
+            $nom = explode(".", $nombre);
+            echo $nom[0];
+
+            if (!move_uploaded_file($foto, 'img/'. $nombre)) {
+              echo "El archivo no se ha podido guardar";
+            }
+
             $alquilado=0;
             $conexion = mysqli_connect("localhost", "root", "", "ejercicio_diw") or
             die("Problemas con la conexión");
-          mysqli_query($conexion, "insert into coches(Marca,Modelo,Matricula,Bastidor,Alquilado,Tipo) values 
-                               ('$_REQUEST[marca]','$_REQUEST[modelo]','$_REQUEST[matricula]','$_REQUEST[bastidor]',$alquilado,'$_REQUEST[tipo]')")
+          mysqli_query($conexion, "insert into coches(Marca,Modelo,Matricula,Bastidor,Alquilado,Tipo,Foto) values 
+                               ('$_REQUEST[marca]','$_REQUEST[modelo]','$_REQUEST[matricula]','$_REQUEST[bastidor]',$alquilado,'$_REQUEST[tipo]','$nom[0]')")
             or die("Problemas en el select" . mysqli_error($conexion));
         
           mysqli_close($conexion);

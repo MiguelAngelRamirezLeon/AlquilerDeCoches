@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container-fluid">
     <div align="center" class="bg-light border border-secondary rounded m-5 p-5">
     <div>
-    <form action="altaCoches.php" method="post">
+    <form action="altaCoches.php" method="post" enctype="multipart/form-data">
         <input type="text" name="marca" id="marca" onfocusout="compruebaMarca()" placeholder="Marca"><br><span id="errorMarca" class="error"></span><br>
         <input type="text" name="modelo" id="modelo" onfocusout="compruebaModelo()" placeholder="Modelo"><br><span id="errorModelo" class="error"></span><br>
         <input type="text" name="matricula" id="matricula" onfocusout="compruebaMatricula()" placeholder="Matricula"><br><span id="errorMatricula" class="error"></span><br>
@@ -39,6 +39,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <option>SUV</option>
             <option>Todoterreno</option>
         </select><br><br>
+        <input type="file" name="foto" id="foto"><br><span id="errorFoto" class="error"></span><br>
         <input type="submit" value="Enviar" id="boton" disabled>
     </form>
     </div>

@@ -30,6 +30,7 @@
 
     echo "<table align='center'>";
         echo "<thead>";
+          echo "<th></th>";
           echo "<th>MARCA</th>";
           echo "<th>MODELO</th>";
           echo "<th>MATRICULA</th>";
@@ -40,6 +41,7 @@
         echo "<tbody>";
         while ($reg = mysqli_fetch_array($registros)) {
           echo "<tr>";
+            echo "<td><img src='img/" . $reg['Foto'] . ".jpg' width='300px'></td>";
             echo "<td>" . $reg['Marca'] . "</td>";
             echo "<td>" . $reg['Modelo'] . "</td>";
             echo "<td>" . $reg['Matricula'] . "</td>";

@@ -2,6 +2,16 @@ var comMarca = false;
 var comModelo = false;
 var comMatricula = false;
 var comBastidor = false;
+var comFoto = false;
+window.onload = incio;
+
+function incio() {
+    document.getElementById("marca").value = "";
+    document.getElementById("modelo").value = "";
+    document.getElementById("matricula").value = "";
+    document.getElementById("bastidor").value = "";
+    document.getElementById("foto").addEventListener("change", compruebaFoto, false);
+}
 
 function compruebaMarca() {
     var marca = document.getElementById("marca").value;
@@ -10,7 +20,7 @@ function compruebaMarca() {
         document.getElementById("marca").value = marca.charAt(0).toUpperCase() + marca.slice(1).toLowerCase();
         document.getElementById("errorMarca").innerHTML = "";
         comMarca = true;
-        if (comMarca && comModelo && comMatricula && comBastidor) {
+        if (comMarca && comModelo && comMatricula && comBastidor && comFoto) {
             document.getElementById("boton").disabled = false;
         }
     } else {
@@ -27,7 +37,7 @@ function compruebaModelo() {
         document.getElementById("modelo").value = modelo.charAt(0).toUpperCase() + modelo.slice(1).toLowerCase();
         document.getElementById("errorModelo").innerHTML = "";
         comModelo = true;
-        if (comMarca && comModelo && comMatricula && comBastidor) {
+        if (comMarca && comModelo && comMatricula && comBastidor && comFoto) {
             document.getElementById("boton").disabled = false;
         }
     } else {
@@ -44,7 +54,7 @@ function compruebaMatricula() {
         document.getElementById("matricula").value = matricula.toUpperCase();
         document.getElementById("errorMatricula").innerHTML = "";
         comMatricula = true;
-        if (comMarca && comModelo && comMatricula && comBastidor) {
+        if (comMarca && comModelo && comMatricula && comBastidor && comFoto) {
             document.getElementById("boton").disabled = false;
         }
     } else {
@@ -61,7 +71,7 @@ function compruebaBastidor() {
         document.getElementById("bastidor").value = bastidor.toUpperCase();
         document.getElementById("errorBastidor").innerHTML = "";
         comBastidor = true;
-        if (comMarca && comModelo && comMatricula && comBastidor) {
+        if (comMarca && comModelo && comMatricula && comBastidor && comFoto) {
             document.getElementById("boton").disabled = false;
         }
     } else {
@@ -71,10 +81,18 @@ function compruebaBastidor() {
     }
 }
 
-function compruebaAlquilado() {
-    if (document.getElementById("alquilado").checked == true) {
-        document.getElementById("alquilado").value = '1';
+function compruebaFoto(params) {
+    const foto = document.getElementById("foto").files[0];
+    var extension = foto.name.split(".");
+    if (extension[1] == "jpg") {
+        comFoto = true;
+        document.getElementById("errorFoto").innerHTML = "";
+        if (comMarca && comModelo && comMatricula && comBastidor && comFoto) {
+            document.getElementById("boton").disabled = false;
+        }
     } else {
-        document.getElementById("alquilado").value = '0';
+        document.getElementById("errorFoto").innerHTML = "solo se permiten archivos jpg";
+        document.getElementById("boton").disabled = true;
+        comFoto = false;
     }
 }
