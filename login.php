@@ -93,24 +93,58 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
     
 </head>
 <body>
-    <br>
-    <div class="panel panel-default border border-info bg bg-light" align="center" style="margin-left: 30%; margin-right: 30%;">
+<nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid navbar-dark bg-black">
+          <a class="navbar-brand" href="index.html"><img src="img/Logotipo.jpg" class="rounded-circle" width="100px" alt=""></a>
+          <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end bg-black" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Manolo's Cars</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="registro.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="login.php">Log In</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="googleMaps.html">Donde Encontrarnos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+      <br>
+      
+
+    <div class="bg-light border border-secondary rounded m-5 p-5" align="center">
         <h2 class="text-dark">Iniciar Sesion</h2><br>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label class="text-info">Usuario: </label>
-                <input type="text" name="username" value="<?php echo $username; ?>">
+                <input type="text" name="username" placeholder="Usuario" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
+            </div>
+            <br>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label class="text-info">Contraseña: </label>
-                <input type="password" name="password"><br>
+                <input type="password" placeholder="Password" name="password"><br>
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
+            <br>
             <div class="form-group">
                 <input type="submit" class="btn btn-info" value="Iniciar sesion">
             </div><br>

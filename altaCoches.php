@@ -17,8 +17,6 @@
             $nombre = $_FILES['foto']['name'];
             $foto = $_FILES['foto']['tmp_name'];
             $nom = explode(".", $nombre);
-            echo $nom[0];
-
             if (!move_uploaded_file($foto, 'img/'. $nombre)) {
               echo "El archivo no se ha podido guardar";
             }

@@ -17,14 +17,7 @@
    
     <?php
 
-        /*
-            $conexion = mysqli_connect("localhost", "root", "", "ejercicio_diw") or
-            die("Problemas con la conexiÃ³n");
-          mysqli_query($conexion, "update coches set Alquilado=1 where Matricula='$_GET[matricula]'")
-            or die("Problemas en el select" . mysqli_error($conexion));
         
-          mysqli_close($conexion);
-          */
             $fechaRecogida=$_POST['fechaRecogida'];
             $fechaEntrega=$_POST['fechaEntrega'];
             //$dni=$_SESSION["dni"];
@@ -35,8 +28,7 @@
             $_SESSION["recogido"]=$recogida;
             $array="";
             $cont=0;
-            echo $recogida;
-            echo $entrega;
+            
 
             if($entrega<$recogida){
                 echo "La fecha no es valida";
@@ -74,24 +66,16 @@
               echo "</tr>";
               }
             echo "</tbody>";
-        echo "</table>";
-
-            }
-            $_SESSION["array"]=substr($array,0,-1);
+          echo "</table>";
+          $_SESSION["array"]=substr($array,0,-1);
             
             header("location: listadoCoches.php");
             exit;
-            
-          /*$precio=500;
-          $conexion = mysqli_connect("localhost", "root", "", "ejercicio_diw") or
-            die("Problemas con la conexion");
-          mysqli_query($conexion, "insert into alquilados (Marca,Modelo,DNI,Fecha_alquiler,Fecha_entrega,Precio) values ('$_GET[marca]','$_GET[modelo]','$dni','$fechaActual','$fechaEntrega','$precio')")
-            or die("Problemas en el select" . mysqli_error($conexion));
-        
-          mysqli_close($conexion);
 
-          echo "<h1>El vehiculo ha sido alquilado</h1>";
-          */
+            }
+            
+            
+          
 
           
 
